@@ -132,6 +132,8 @@ align-items: center;
         margin-top: 3.5rem;
         margin-bottom: 3.5rem; 
         flex-wrap: nowrap; 
+
+        
     }
   }
 
@@ -171,8 +173,8 @@ border-top-left-radius: 0.75rem;
 border-bottom-left-radius: 0.75rem; 
 width: 100%; 
 
-margin-right: 550px;
-margin: 550x;
+margin-right:550px;
+
 
 
 
@@ -226,9 +228,7 @@ border-color: #0c1524;
 
 
 
-.selection-image-container{
 
-}
 
 
 @media (min-width: 640px) {
@@ -267,11 +267,20 @@ transition-duration: 300ms;
 .selection-text-container{
     padding-left: 0.5rem; 
     flex-grow: 1; 
+
+
+   
     
 }
 
+.selection-text-container h5{
+    font-size: 20px;
 
-.selection-text-container-paragraph{
+    font-weight: 900;
+}
+
+
+/* .selection-text-container-paragraph{
 
     overflow: hidden; 
     
@@ -282,8 +291,32 @@ max-height: 0;
 font-size: 0.875rem;
 line-height: 1.25rem; 
 max-width: 270px
+} */
+
+
+.selection-text-container-paragraph {
+    overflow: hidden;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.25rem;
+    max-height: 0;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    max-width: 270px;
+    transition: max-height 0.3s ease;
 }
 
+/* 
+.video-containers video,
+.still-photo {
+    display: none;
+} */
+
+
+
+.selection-item.active .selection-text-container-paragraph {
+    max-height: 1000px; /* A large enough value to show the full content */
+}
 
 @media (min-width: 640px) {
     .selection-text-container-paragraph {
@@ -293,199 +326,148 @@ max-width: 270px
   }
 
 
+  .selection-item.active video,
+  .selection-item.active .still-photo {
+      display: block;
+  }
 
 
 
 
 
 
-.songbutton{
 
-    
 
+
+
+
+
+.songbutton {
     margin-bottom: 0.5rem; 
     width: 100%; 
-
-
     padding-bottom: 8px;
-padding-left: 28px;
-padding-right: 28px;
-padding-top: 10px;
-
-
-letter-spacing: 1.8px;
-line-height: 18px;
-margin-bottom: 0px;
-margin-left: 4px;
-margin-right: 4px;
-
-
-font-family: "Bebas Neue", sans-serif !important;
-font-feature-settings: normal;
-font-kerning: auto;
-
-
-font-weight :500;
-border-radius: 50px;
-text-decoration: none;
-
-
-
-border-left-color: rgb(255, 255, 255);
-border-left-style: solid;
-border-left-width: 2px;
-border-right-color: rgb(255, 255, 255);
-border-right-style: solid;
-border-right-width: 2px;
-border-top-color: rgb(255, 255, 255);
-border-top-left-radius: 50px;
-border-top-right-radius: 50px;
-border-top-style: solid;
-border-top-width: 2px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 0px;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-
-
-}
-
-
-
-@media (min-width: 640px) {
-    .songbutton {
-        margin-left: 0.25rem;
-        margin-right: 0.25rem; 
-        margin-bottom: 0; 
-        width: 16rem;  
-       
-    }
-  }
-
-
-
-
-.planbutton{
-
-    width: 100%; 
-
-
-
-
-    padding-bottom: 8px;
-padding-left: 28px;
-padding-right: 28px;
-padding-top: 10px;
-
-
-
-letter-spacing: 1.8px;
-line-height: 18px;
-margin-bottom: 0px;
-margin-left: 4px;
-margin-right: 4px;
-
-
-font-family: "Bebas Neue", sans-serif !important;
-font-feature-settings: normal;
-font-kerning: auto;
-
-
-font-weight :500;
-border-radius: 50px;
-text-decoration: none;
-background-color: rgb(246, 26, 48);
-
-}
-
-
-@media (min-width: 640px) {
-    .songbutton {
-        margin-left: 0.25rem;
-        margin-right: 0.25rem; 
-        width: 16rem; 
-
-        margin-top: 20px;
-       
-    }
-
-    .planbutton{
-        margin-left: 0.25rem;
-        margin-right: 0.25rem; 
-        width: 16rem;
-        
-        margin-bottom: 20px;
-
-        
-    }
-  }
-
-
-
-
-
-
-
-.plan{
-
-  
-
-
-background-color: rgb(246, 26, 48);
-
-color: rgb(255, 255, 255);
-
-
-   
-    
-
-
-}
-
-
-
-.song{
-
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 10px;
+    letter-spacing: 1.8px;
+    line-height: 18px;
+    margin-bottom: 0px;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-family: "Bebas Neue", sans-serif !important;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-weight: 500;
+    border-radius: 50px;
+    text-decoration: none;
+    border-left-color: rgb(255, 255, 255);
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-top-color: rgb(255, 255, 255);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-top-style: solid;
+    border-top-width: 2px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px;
     border-bottom-style: solid;
-border-bottom-width: 2px;
-text-decoration: none;
-background-color :rgba(0, 0, 0, 0);
-border-bottom-color: rgb(255, 255, 255);
-border-left-color: rgb(255, 255, 255);
-border-right-color: rgb(255, 255, 255);
-border-top-color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
-outline-color: rgb(255, 255, 255);
-text-decoration-color: rgb(255, 255, 255);
-
+    border-bottom-width: 2px;
 }
 
 
 
-button .plan{
+.songbutton:hover{
+    background-color: #ffffff;
+    color: black;
+    transition-duration: 0.5s;
+}
+
+
+.planbutton:hover{
+    background-color: #d66d6d;
+    transition-duration: 0.5s;
+}
+
+.planbutton i:hover{
+    transition: margin-right 2s;
+}
+
+.planbutton {
+    width: 100%; 
+    padding-bottom: 8px;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 10px;
+    letter-spacing: 1.8px;
+    line-height: 18px;
+    margin-bottom: 0px;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-family: "Bebas Neue", sans-serif !important;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-weight: 500;
+    border-radius: 50px;
+    text-decoration: none;
+    background-color: rgb(246, 26, 48);
+}
+
+.plan {
+    background-color: rgb(246, 26, 48);
+    color: rgb(255, 255, 255);
+}
+
+.song {
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgb(255, 255, 255);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    outline-color: rgb(255, 255, 255);
+    text-decoration-color: rgb(255, 255, 255);
+}
+
+button .plan {
     text-decoration: none;
 }
 
-
-a{
+a {
     color: #ffffff;
     text-decoration: none;
 } 
 
-
-
-.disclaimer{
-
+.disclaimer {
     margin-top: 1.25rem; 
-font-size: 0.875rem;
-line-height: 1.25rem; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    color: rgb(161, 175, 201) !important;
+}
 
-color: rgb(161, 175, 201) !important;
+.disclaimer p {
+    color: rgb(161, 175, 201);
+}
 
+.fixbutton {
+    display: inline-block;
 }
 
 
-.disclaimer p {
 
-    color :rgb(161, 175, 201);
 
+@media (max-width: 639px) {
+    .fixbutton {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fixbutton > * {
+        margin-bottom: 10px; 
+    }
 }
