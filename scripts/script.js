@@ -1,32 +1,4 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const videoMap = {
-//         item1: '/videos/piano1vid.mp4',
-//         item2: '/videos/piano2vid.mp4',
-//         item3: '/videos/piano3vid.mp4',
-//         item4: '/videos/piano4vid.mp4',
-//         item5: '/images/stillphoto.webp' 
-//     };
 
-//     const videoContainer = document.querySelector('.video-containers video');
-//     const stillPhoto = document.querySelector('.video-containers img');
-
-//     document.querySelectorAll('.selection-item').forEach(item => {
-//         item.addEventListener('click', () => {
-//             const videoSrc = videoMap[item.id];
-
-//             if (videoSrc.endsWith('.webp')) {
-//                 videoContainer.style.display = 'none';
-//                 stillPhoto.src = videoSrc;
-//                 stillPhoto.style.display = 'block';
-//             } else {
-//                 stillPhoto.style.display = 'none';
-//                 videoContainer.src = videoSrc;
-//                 videoContainer.style.display = 'block';
-//                 videoContainer.play();
-//             }
-//         });
-//     });
-// });
 
 
 
@@ -44,20 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoContainer = document.querySelector('.video-containers video');
     const stillPhoto = document.querySelector('.video-containers img');
 
+    function playVideo(src) {
+        if (src.endsWith('.jpg')) {
+            videoContainer.style.display = 'none';
+            stillPhoto.src = src;
+            stillPhoto.style.display = 'block';
+        } else {
+            stillPhoto.style.display = 'none';
+            videoContainer.src = src;
+            videoContainer.style.display = 'block';
+            videoContainer.play();
+        }
+    }
+
+    // Autoplay video for item1 on page load
+    playVideo(videoMap['item1']);
+
     document.querySelectorAll('.selection-item').forEach(item => {
         item.addEventListener('click', () => {
             const videoSrc = videoMap[item.id];
 
-            if (videoSrc.endsWith('.jpg')) {
-                videoContainer.style.display = 'none';
-                stillPhoto.src = videoSrc;
-                stillPhoto.style.display = 'block';
-            } else {
-                stillPhoto.style.display = 'none';
-                videoContainer.src = videoSrc;
-                videoContainer.style.display = 'block';
-                videoContainer.play();
-            }
+            playVideo(videoSrc);
+
+            // Change overflow property of the respective paragraph and handle spacing
+            document.querySelectorAll('.selection-text-container-paragraph').forEach(paragraph => {
+                paragraph.classList.remove('visible');
+            });
+
+            const paragraph = item.querySelector('.selection-text-container-paragraph');
+            paragraph.classList.add('visible');
         });
     });
 

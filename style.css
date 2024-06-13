@@ -304,6 +304,9 @@ max-width: 270px
     line-height: 1.25rem;
     max-width: 270px;
     transition: max-height 0.3s ease;
+
+    max-height: 0;
+    transition: max-height 0.5s ease-out, padding-bottom 0.5s ease-out;
 }
 
 /* 
@@ -336,11 +339,46 @@ max-width: 270px
 
 
 
+  .selection-text-container-paragraph.visible {
+    max-height: 200px; /* Adjust as needed */
+    padding-bottom: 20px;
+}
 
 
 
+@media (max-width: 768px) {
+    .selection-item {
+        margin-bottom: 8px;
+        padding: 8px;
+    }
 
+    .selection-text-container-paragraph {
+        max-height: 0;
+        transition: max-height 0.5s ease-out, padding-bottom 0.5s ease-out;
+    }
 
+    .selection-text-container-paragraph.visible {
+        max-height: 150px; 
+        padding-bottom: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .selection-item {
+        margin-bottom: 6px;
+        padding: 6px;
+    }
+
+    .selection-text-container-paragraph {
+        max-height: 0;
+        transition: max-height 0.5s ease-out, padding-bottom 0.5s ease-out;
+    }
+
+    .selection-text-container-paragraph.visible {
+        max-height: 100px; /* Adjust as needed */
+        padding-bottom: 12px;
+    }
+}
 
 .songbutton {
     margin-bottom: 0.5rem; 
